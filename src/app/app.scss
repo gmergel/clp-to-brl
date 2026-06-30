@@ -1,0 +1,141 @@
+:host {
+	display: block;
+	min-height: 100dvh;
+}
+
+.converter-shell {
+	min-height: 100dvh;
+	display: grid;
+	place-items: center;
+	padding: 0.9rem;
+}
+
+.converter-card {
+	width: min(560px, 100%);
+	border-radius: 1.25rem;
+	padding: 1rem;
+	background: linear-gradient(150deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+	backdrop-filter: blur(6px);
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+	display: grid;
+	gap: 0.85rem;
+}
+
+.eyebrow {
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	font-size: 0.72rem;
+	color: #9ed8d2;
+}
+
+h1 {
+	margin: 0.2rem 0 0.5rem;
+	font-size: clamp(1.5rem, 4vw, 2.1rem);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.clp-field {
+	width: 100%;
+}
+
+.thousand-indicator {
+	margin: 0;
+	color: #d7dee8;
+	font-size: 1.08rem;
+	font-weight: 600;
+}
+
+.result-area {
+	display: grid;
+	gap: 0.3rem;
+	border-radius: 0.95rem;
+	padding: 0.9rem;
+	background: linear-gradient(165deg, rgba(29, 102, 102, 0.3), rgba(13, 20, 30, 0.56));
+	border: 1px solid rgba(158, 216, 210, 0.26);
+}
+
+.result-label {
+	color: #b4c4d6;
+	font-size: 0.88rem;
+}
+
+.result-value {
+	font-size: clamp(1.7rem, 7vw, 2.7rem);
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+}
+
+.result-rate {
+	color: #8aa0b7;
+	font-size: 0.82rem;
+}
+
+.history-area {
+	display: grid;
+	gap: 0.55rem;
+	padding-top: 0.2rem;
+}
+
+.history-area h2 {
+	margin: 0;
+	font-size: 0.92rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #98b2c8;
+}
+
+.history-empty {
+	margin: 0;
+	font-size: 0.84rem;
+	color: #7f95a9;
+}
+
+.history-area ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 0.5rem;
+	max-height: 34dvh;
+	overflow: auto;
+}
+
+.history-area li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.7rem;
+	padding: 0.65rem 0.75rem;
+	border-radius: 0.75rem;
+	background: rgba(17, 28, 40, 0.55);
+	border: 1px solid rgba(132, 168, 192, 0.2);
+}
+
+.history-area li strong {
+	font-size: 1rem;
+	line-height: 1;
+}
+
+.history-area li span {
+	font-size: 0.82rem;
+	color: #9eb3c8;
+}
+
+@media (max-width: 420px) {
+	.converter-shell {
+		padding: 0.8rem;
+	}
+
+	.converter-card {
+		border-radius: 1rem;
+		padding: 1rem;
+	}
+
+	.history-area ul {
+		max-height: 29dvh;
+	}
+}
