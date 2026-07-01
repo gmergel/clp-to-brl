@@ -1,8 +1,6 @@
 import { CurrencyPipe, DecimalPipe } from '@angular/common';
 import { Component, OnDestroy, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 
 type HistoryEntry = {
   id: number;
@@ -12,7 +10,7 @@ type HistoryEntry = {
 
 @Component({
   selector: 'app-root',
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, CurrencyPipe, DecimalPipe],
+  imports: [ReactiveFormsModule, CurrencyPipe, DecimalPipe],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

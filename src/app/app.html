@@ -1,48 +1,37 @@
-<main class="converter-shell">
-  <section class="converter-card">
-    <p class="eyebrow">Conversor rapido</p>
-    <h1>CLP para BRL</h1>
+<main class="screen">
+  <h1>CLP para BRL</h1>
 
-    <mat-form-field appearance="outline" class="clp-field">
-      <mat-label>Valor em mil pesos chilenos (CLP)</mat-label>
-      <span matTextPrefix>CLP&nbsp;</span>
-      <input
-        matInput
-        type="text"
-        inputmode="decimal"
-        autocomplete="off"
-        [formControl]="clpInput"
-        (input)="onType()"
-        placeholder="Ex.: 15,4"
-        aria-label="Digite o valor em pesos chilenos"
-      />
-    </mat-form-field>
+  <label for="clp-input">Valor em mil pesos (CLP)</label>
+  <input
+    id="clp-input"
+    type="text"
+    inputmode="decimal"
+    autocomplete="off"
+    [formControl]="clpInput"
+    (input)="onType()"
+    placeholder="Ex.: 15,4"
+    aria-label="Digite o valor em pesos chilenos"
+  />
 
-    <p class="thousand-indicator">{{ clpValue | number: '1.0-0':'pt-BR' }} pesos</p>
+  <p class="clp">{{ clpValue | number: '1.0-0':'pt-BR' }} pesos</p>
+  <p class="brl">{{ brlValue | currency: 'BRL':'symbol':'1.2-2':'pt-BR' }}</p>
 
-    <div class="result-area" aria-live="polite">
-      <span class="result-label">Valor aproximado em reais</span>
-      <strong class="result-value">{{ brlValue | currency: 'BRL':'symbol':'1.2-2':'pt-BR' }}</strong>
-      <small class="result-rate">Razao aplicada: 1 BRL = 178 CLP</small>
-    </div>
+  <section class="history">
+    <h2>Historico</h2>
 
-    <section class="history-area" aria-live="polite">
-      <h2>Historico rapido</h2>
+    @if (conversionHistory().length === 0) {
+      <p class="empty">A conversao entra na lista apos 5s sem digitar.</p>
+    }
 
-      @if (conversionHistory().length === 0) {
-        <p class="history-empty">Apos 5s sem digitar, a conversao atual entra aqui.</p>
-      }
-
-      @if (conversionHistory().length > 0) {
-        <ul>
-          @for (entry of conversionHistory(); track entry.id) {
-            <li>
-              <strong>{{ entry.brl | currency: 'BRL':'symbol':'1.2-2':'pt-BR' }}</strong>
-              <span>{{ entry.clp | number: '1.0-0':'pt-BR' }} pesos</span>
-            </li>
-          }
-        </ul>
-      }
-    </section>
+    @if (conversionHistory().length > 0) {
+      <ul>
+        @for (entry of conversionHistory(); track entry.id) {
+          <li>
+            <strong>{{ entry.brl | currency: 'BRL':'symbol':'1.2-2':'pt-BR' }}</strong>
+            <span>{{ entry.clp | number: '1.0-0':'pt-BR' }} pesos</span>
+          </li>
+        }
+      </ul>
+    }
   </section>
 </main>
